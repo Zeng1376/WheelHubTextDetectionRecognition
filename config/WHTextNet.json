@@ -1,0 +1,31 @@
+{
+  "network": {
+    "name": "WHTextNet",
+    "word_detector": {
+      "config_path": "config/dbnetpp_resnet50-dcnv2_WheelHub.py",
+      "weight_path": "pth/detectors/epoch_40_word.pth"
+    },
+    "character_detector": {
+      "config_path": "config/dbnetpp_resnet50-dcnv2_WheelHub.py",
+      "weight_path": "pth/detectors/epoch_40_character.pth"
+    },
+    "recognizer": {
+      "use_attention": true,
+      "use_mask":true,
+      "use_dilate": true,
+      "weight_path": "pth/pthmodel_20240428_192501_90"
+    }
+  },
+  "data_set": {
+    "cfg_path": "dataset/WheelHub/character_train.json",
+    "data_path": "dataset/WheelHub/"
+  },
+  "train": {
+    "batch":64,
+    "save_per_epoch": 10,
+    "lr": 0.0001,
+    "save_pth_dir": "/home/h666/zengyue/gd/WHTextNet/pth/",
+    "max_epoch": 200,
+    "resume": "pth/model3_20240408_105631_80"
+  }
+}
